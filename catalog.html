@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <title>Хвостики - Каталог</title>
+</head>
+<body>
+<main>
+    <header>
+    <div class="container header-container">
+        <a href="#" class="logo">
+            <div class="logo-icon">
+                <img src="../assets/images/logo.svg" alt="">
+            </div>
+        </a>
+        <div class="burger" id="burger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="index.html" class="nav-link">Главная</a></li>
+            <li><a href="catalog.html" class="nav-link">Каталог</a></li>
+            <li><a href="about.html" class="nav-link">О нас</a></li>
+            <li><a href="contact.html" class="nav-link">Контакты</a></li>
+        </ul>
+        
+        <div class="nav-actions">
+            <li><a href="#" class="nav-link">
+                <img src="../assets/images/luna.svg" alt="">
+            </a></li>
+        </div>
+        
+        <div class="adres">
+            г. Москва, ул. <br>
+            Пушечная, д. 5 <br>
+            +7 (495) 123-45-67
+        </div>
+    </div> 
+</header>
+
+<script>
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const burger = document.getElementById('burger');
+        const navMenu = document.getElementById('navMenu');
+
+        burger.addEventListener('click', function() {
+            burger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                burger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+        document.addEventListener('click', function(event) {
+            const isClickInsideMenu = navMenu.contains(event.target);
+            const isClickOnBurger = burger.contains(event.target);
+            
+            if (!isClickInsideMenu && !isClickOnBurger && navMenu.classList.contains('active')) {
+                burger.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
+        
+        
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768 && navMenu.classList.contains('active')) {
+                burger.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
+    });
+</script>
+    <section class="page-header">
+    <div class="container">
+        <h1>Каталог товаров</h1>
+    </div>
+</section>
+
+    <section class="catalog">
+    <div class="container catalog-container">
+        <div class="filters">
+            <div class="filter-section">
+                <div class="filter-title">
+                    <span>Категории</span>
+                </div>
+                <div class="filter-content">
+                    <div class="filter-option">
+                        <input type="checkbox" id="category-dogs">
+                        <label for="category-dogs">Для собак</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="category-cats">
+                        <label for="category-cats">Для кошек</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="category-birds">
+                        <label for="category-birds">Для птиц</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="category-fish">
+                        <label for="category-fish">Для рыбок</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="category-rodents">
+                        <label for="category-rodents">Для грызунов</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="filter-section">
+                <div class="filter-title">
+                    <span>Тип товара</span>
+                </div>
+                <div class="filter-content">
+                    <div class="filter-option">
+                        <input type="checkbox" id="type-food">
+                        <label for="type-food">Корма</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="type-toys">
+                        <label for="type-toys">Игрушки</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="type-accessories">
+                        <label for="type-accessories">Аксессуары</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="type-care">
+                        <label for="type-care">Уход и гигиена</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="filter-section">
+                <div class="filter-title">
+                    <span>Цена, ₽</span>
+                </div>
+                <div class="price-range">
+                    <input type="number" class="price-input" placeholder="От" id="price-min" value="0">
+                    <input type="number" class="price-input" placeholder="До" id="price-max" value="10000">
+                </div>
+            </div>
+            <button class="butn" style="width: 100%; margin-top: 20px;">Применить фильтры</button>
+            <button class="butn" style="width: 100%; margin-top: 10px;">Сбросить</button>
+        </div>
+
+        <div class="products-content">
+            <div class="products-grid">
+                <div class="card product-card">
+                    <div class="card-image">
+                        <img src="..//assets/images/grandorf.svg" alt="">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Корм для собак премиум класса</h3>
+                        <p class="card-description">Сбалансированное питание для активных собак всех пород</p>
+                        <div class="card-price">
+                            <div class="current-price">1 299 ₽</div>
+                        </div>
+                        <a href="#product-modal-1" class="btun">В корзину</a>
+                    </div>
+                </div>
+                <div class="card product-card">
+                    <div class="card-image">
+                        <img src="../assets/images/game.svg" alt="">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Интерактивная игрушка для кошек</h3>
+                        <p class="card-description">Развивающая игра для поддержания активности вашего питомца</p>
+                        <div class="card-price">
+                            <div class="current-price">899 ₽</div>
+                        </div>
+                        <a href="#product-modal-2" class="btun">В корзину</a>
+                    </div>
+                </div>
+                <div class="card product-card">
+                    <div class="card-image">
+                        <img src="../assets/images/aqua.svg" alt="">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Аквариумный набор "Морской мир"</h3>
+                        <p class="card-description">Полный комплект для создания подводного царства у вас дома</p>
+                        <div class="card-price">
+                            <div class="current-price">5 499 ₽</div>
+                        </div>
+                        <a href="#product-modal-3" class="btun">В корзину</a>
+                    </div>
+                </div>
+                <div class="card product-card">
+                    <div class="card-image">
+                        <img src="../assets/images/pink.svg" alt="">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Petmax комбинезон </h3>
+                        <p class="card-description">Комбинезон со светоотражающей полосой для собак, S, розовый (девочка)</p>
+                        <div class="card-price">
+                            <span class="current-price">1 299 ₽</span>
+                        </div>
+                        <a href="#product-modal-4" class="btun">В корзину</a>
+                    </div>
+                </div>
+                <div class="card product-card">
+                    <div class="card-image">
+                        <img src="../assets/images/unitabs.svg" alt="">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Unitabs Тотал витаминный комплекс </h3>
+                        <p class="card-description">Витаминный комплекс с коэнзимом Q10 для кроликов, птиц и грызунов, 10 мл</p>
+                        <div class="card-price">
+                            <div class="current-price">899 ₽</div>
+                        </div>
+                        <a href="#product-modal-5" class="btun">В корзину</a>
+                    </div>
+                </div>
+                <div class="card product-card">
+                    <div class="card-image">
+                        <img src="../assets/images/milbemax.svgunitabs.svg" alt="">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Elanco Мильбемакс Таблетки</h3>
+                        <p class="card-description">Таблетки от гельминтов для щенков и собак мелких пород весом 0,5-10 кг, 2 таблетки</p>
+                        <div class="card-price">
+                            <div class="current-price">999 ₽</div>
+                        </div>
+                        <a href="#product-modal-6" class="btun">В корзину</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+                
+
+
+
+    
+    <footer>
+    <div class="container">
+        <div class="footer-container">
+            <div class="footer-about">
+                <a href="#" class="footer-logo">
+                    <img src="../assets/images/logo.svg" alt="">
+                </a>
+                <p>Зоомагазин "Хвостики" - <br>
+                    всё для ваших любимых <br>
+                    питомцев. Качественные <br>
+                    товары по доступным <br>
+                    ценам с быстрой <br>
+                    доставкой.</p>
+                <div class="social-links">
+                  <img src="../assets/images/social.svg" alt="">
+                </div>
+            </div>
+            <div class="footer-links">
+                <h3>Полезные ссылки</h3>
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="catalog.html">Каталог</a></li>
+                    <li><a href="contact.html">Контакты</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h3>Поддержка</h3>
+                <ul>
+                    <li><a href="#">Помощь</a></li>
+                    <li><a href="#">Частые вопросы</a></li>
+                    <li><a href="#">Отследить заказ</a></li>
+                    <li><a href="#">Политика конфиденциальности</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+</main>
+</body>
+</html>

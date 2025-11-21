@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <title>Хвостики - Главная</title>
+</head>
+<body>
+
+
+<main>
+    <header>
+    <div class="container header-container">
+        <a href="#" class="logo">
+            <div class="logo-icon">
+                <img src="../assets/images/logo.svg" alt="">
+            </div>
+        </a>
+        <div class="burger" id="burger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="index.html" class="nav-link">Главная</a></li>
+            <li><a href="catalog.html" class="nav-link">Каталог</a></li>
+            <li><a href="about.html" class="nav-link">О нас</a></li>
+            <li><a href="contact.html" class="nav-link">Контакты</a></li>
+        </ul>
+        
+        <div class="nav-actions">
+            <li><a href="#" class="nav-link">
+                <img src="../assets/images/luna.svg" alt="">
+            </a></li>
+        </div>
+        
+        <div class="adres">
+            г. Москва, ул. <br>
+            Пушечная, д. 5 <br>
+            +7 (495) 123-45-67
+        </div>
+    </div> 
+</header>
+
+<script>
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const burger = document.getElementById('burger');
+        const navMenu = document.getElementById('navMenu');
+
+        burger.addEventListener('click', function() {
+            burger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                burger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+        document.addEventListener('click', function(event) {
+            const isClickInsideMenu = navMenu.contains(event.target);
+            const isClickOnBurger = burger.contains(event.target);
+            
+            if (!isClickInsideMenu && !isClickOnBurger && navMenu.classList.contains('active')) {
+                burger.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
+        
+        
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768 && navMenu.classList.contains('active')) {
+                burger.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
+    });
+</script>
+    <section class="hero">
+        <div class="baner">
+            <img src="../assets/images/Ellipse 1.svg" alt="">
+        </div>
+        <div class="container hero-container">
+            <div class="hero-image">
+                <img src="../assets/images/соб 1.svg" alt="">
+            </div>
+            <div class="hero-content">
+                <h1>Хвостики - забота о <br>ваших питомцах</h1>
+                <p class="tx">Всё для счастья вашего любимца: корма, <br>
+                    игрушки, аксессуары и многое другое с <br>
+                    доставкой на дом. Мы знаем, что ваш <br>
+                    питомец - это член семьи, и заслуживает <br>
+                    только самого лучшего!</p>
+                <div class="hero-buttonss">
+                    <a href="catalog.html" class="b">В каталог</a>
+                    <a href="about.html" class="b">О нас</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+<section class="about">
+    <div class="container">
+        <h2 class="section-title">О нашем магазине</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>Мы создали "Хвостики" с одной простой целью - <br>
+                    сделать заботу о питомцах легкой и приятной. Наша <br>
+                    команда состоит из ветеринаров, кинологов и просто <br>
+                    любителей животных, которые тщательно отбирают <br>
+                    каждый товар в нашем ассортименте.</p>
+                <p>Мы верим, что каждый питомец заслуживает самого <br>
+                    лучшего, и стремимся предложить именно такие <br>
+                    продукты по доступным ценам.</p>
+                <div class="">
+                    <a href="about.html" class="btn btn-secondary h44">Узнать больше</a>
+                </div>
+            </div>
+            <div class="about-image">
+                <img src="../assets/images/котики 1.svg" alt="">
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <section class="features">
+    <div class="container">
+        <h2 class="section-title">Почему выбирают нас</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <img src="../assets/images/garantia.svg" alt="">
+                </div>
+                <h3>Гарантия качества</h3>
+                <p>Все товары проходят тщательный отбор и имеют необходимые сертификаты</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <img src="../assets/images/dostavka.svg" alt="">
+                </div>
+                <h3>Быстрая доставка</h3>
+                <p>Доставляем заказы в день оформления по всему городу</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <img src="../assets/images/support.svg" alt="">
+                </div>
+                <h3>Поддержка 24/7</h3>
+                <p>Наши консультанты всегда готовы помочь с выбором товаров</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <img src="../assets/images/lapka.svg" alt="">
+                </div>
+                <h3>Эксперты по животным</h3>
+                <p>Наша команда состоит из ветеринаров и кинологов</p>
+            </div>
+        </div>
+    </div>
+</section>
+    <section class="products">
+    <div class="container">
+        <h2 class="section-title">Популярные товары</h2>
+        <div class="products-grids">
+            <div class="product-cards">
+                <div class="product-images">
+                    <img class="g" src="../assets/images/grandorf.svg" alt="">
+                </div>
+                <div class="product-info">
+                    <h3>Корм для собак премиум класса</h3>
+                    <p>Сбалансированное питание для активных собак всех пород</p>
+                    <div class="product-price">1 299 ₽</div> <a href="#product-modal-1" class="btn2">Подробнее</a>
+
+                </div>
+            </div>
+            <div class="product-cards">
+                <div class="product-images">
+                    <img class="g" src="../assets/images/game.svg" alt="">
+                </div>
+                <div class="product-info">
+                    <h3>Интерактивная игрушка для кошек</h3>
+                    <p>Развивающая игра для поддержания активности вашего питомца</p>
+                    <div class="product-price">899 ₽</div> <a href="#product-modal-1" class="btn2">Подробнее</a>
+                    
+                </div>
+            </div>
+            <div class="product-cards">
+                <div class="product-images">
+                    <img class="g" src="../assets/images/aqua.svg" alt="">
+                </div>
+                <div class="product-info">
+                    <h3>Аквариумный набор "Морской мир"</h3>
+                    <p>Полный комплект для создания подводного царства у вас дома</p>
+                    <div class="product-price">5 499 ₽</div> <a href="#product-modal-1" class="btn2">Подробнее</a>
+                </div>
+
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="catalog.html" class="btn btn-secondary">Весь каталог</a>
+        </div>
+    </div>
+</section>
+    <section class="testimonials">
+    <div class="container">
+        <h2 class="section-title">Отзывы наших клиентов</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-avatar">
+                    <img src="../assets/images/anna.svg" alt="">
+                </div>
+                <h3>Анна</h3>
+                <p>"Заказываю корм для своего лабрадора уже больше года. Всегда быстрая доставка и отличное качество продуктов. Собака просто в восторге!"</p>
+                <div class="stars">
+                    <img src="../assets/images/stars.svg" alt="">
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-avatar">
+                    <img src="../assets/images/dmitriy.svg" alt="">
+                </div>
+                <h3>Дмитрий</h3>
+                <p>"Отличный магазин! Консультанты помогли подобрать корм для кошки с чувствительным пищеварением. Теперь покупаем только здесь."</p>
+                <div class="stars">
+                    <img src="../assets/images/stars.svg" alt="">
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-avatar">
+                    <img src="../assets/images/olga.svg" alt="">
+                </div>
+                <h3>Ольга</h3>
+                <p>"Заказывала аквариумный набор - привезли быстро, все компоненты качественные. Консультант подробно объяснил, как все установить. "</p>
+                <div class="stars">
+                    <img src="../assets/images/stars.svg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <section class="contact">
+    <div class="container">
+        <h2 class="section-title">Свяжитесь с нами</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Наши контакты</h3>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <img src="../assets/images/adres.svg" alt="">
+                    </div>
+                    <div class="text">
+                        <h4>Адрес</h4>
+                        <p>г. Москва, ул. Пушкинская, д. 15</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <img src="../assets/images/phone.svgadres.svg" alt="">
+                    </div>
+                    <div class="text">
+                        <h4>Телефон</h4>
+                        <p>+7 (495) 123-45-67</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <img src="../assets/images/email.svg" alt="">
+                    </div>
+                    <div class="text">
+                        <h4>Email</h4>
+                        <p>info@khvostiki.ru</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <img src="../assets/images/time.svg" alt="">
+                    </div>
+                    <div class="text">
+                        <h4>Время работы</h4>
+                        <p>Пн-Вс: 9:00 - 21:00</p>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form">
+                <h3>Оставьте заявку</h3>
+                <form action="#" method="POST">
+                    <div class="form-group">
+                        <label for="name">Ваше имя</label>
+                        <input type="text" id="name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Сообщение</label>
+                        <textarea id="message" class="form-control" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn hf">Отправить</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+    <footer>
+    <div class="container">
+        <div class="footer-container">
+            <div class="footer-about">
+                <a href="#" class="footer-logo">
+                    <img src="../assets/images/logo.svg" alt="">
+                </a>
+                <p>Зоомагазин "Хвостики" - <br>
+                    всё для ваших любимых <br>
+                    питомцев. Качественные <br>
+                    товары по доступным <br>
+                    ценам с быстрой <br>
+                    доставкой.</p>
+                <div class="social-links">
+                  <img src="../assets/images/social.svg" alt="">
+                </div>
+            </div>
+            <div class="footer-links">
+                <h3>Полезные ссылки</h3>
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="catalog.html">Каталог</a></li>
+                    <li><a href="contact.html">Контакты</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h3>Поддержка</h3>
+                <ul>
+                    <li><a href="#">Помощь</a></li>
+                    <li><a href="#">Частые вопросы</a></li>
+                    <li><a href="#">Отследить заказ</a></li>
+                    <li><a href="#">Политика конфиденциальности</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+    
+</main>
+
+
+
+</body>
+</html>
